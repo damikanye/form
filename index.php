@@ -4,7 +4,19 @@ if(isset($_POST["submit"])){
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
     $email = $_POST["email"];
-    $password = 
+    $password = hash("sha256", $_POST["password"]);
+    $number = $_POST["tel"];
+    $gender = $_POST["gender"];
+    $country = $_POST["country"];
+
+    if(empty ($firstName) || empty ($lastname) || empty($email) || empty($password) || empty($number) || empty($gender) || empty($country)){
+        $message = <p class="error">All fields must be filled</p>;
+    }
+
+    if(empty($message)){
+        $message = <p class= "success">All inputs are valid, Thank You</p>;
+    }
+
 }
 
 ?>
@@ -22,6 +34,7 @@ if(isset($_POST["submit"])){
 
     <div class="login">
         <h1>Signup</h1>
+        <?php echo $message; ?>
     <form name="form" method="post" onsubmit="return validate()" >
         <label for="name">Firstname:</label>
         <input type="text" name="firstname" id="firstname">

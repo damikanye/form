@@ -48,3 +48,9 @@ body {
     background: #ffc107;
     color: #000;
 }
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
